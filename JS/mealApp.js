@@ -1,3 +1,5 @@
+'use strict';
+
 const search=document.getElementById("search");
 const submit=document.getElementById("submit");
 const random=document.getElementById("random");
@@ -58,7 +60,8 @@ function getRandomMeal(){
 }
 
 function addMealToDom(meal){
-  const ingredients=[];//in backend we add 20 meals for every order.
+    //in backend we add 20 meals for every order.
+  const ingredients=[];
   for(let i=1;i<=20;i++){
      if(meal[`strIngredient${i}`]){//those are not empty,i'm putting that value.
          ingredients.push(`${meal[`strIngredient${i}`]}`)
@@ -87,6 +90,9 @@ ${ingredients.map(ing => `<li>${ing}</li>`).join('')}
 `;
 }
 
-submit.addEventListener("submit",searchMeal); // click for search
-random.addEventListener("click",getRandomMeal); //click for after search(random)
+ // click for search
+submit.addEventListener("submit",searchMeal);
+
+//click for after search(random)
+random.addEventListener("click",getRandomMeal); 
 
